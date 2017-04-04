@@ -15,41 +15,7 @@ var myApp=angular
 	];
 
 	$scope.employees=employees;
-
-
-	$scope.sortColumn="name";
-
-	$scope.reverseSort=false;
-
-	$scope.sortData=function(column){
-
-		$scope.reverseSort=($scope.sortColumn==column) ? !$scope.reverseSort : false;
-		$scope.sortColumn=column;
-	}
-
-	$scope.getSortClass=function(column){
-
-		if($scope.sortColumn==column){
-
-			return $scope.reverseSort ? "arrow-down" : "arrow-up" ; 
-		}
-
-		return "";
-	}
-
-	$scope.search=function(item){
-
-		if($scope.searchText==undefined)
-		{
-			return true;
-		}
-		else{
-			if(item.name.toLowerCase().indexOf($scope.searchText.toLowerCase())!= -1 || item.city.toLowerCase().indexOf($scope.searchText.toLowerCase())!= -1){
-				return true;
-			}
-		}
-		return false;
-	}
+	$scope.selectView='EmployeeTable.html'
 
 
 });

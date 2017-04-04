@@ -10,30 +10,13 @@
 </head>
 <body ng-app="myModule">
 <div ng-controller="myController">
-	<input type="text" placeholder="Search city & name" ng-model="searchText" /> 
-	<br/><br/>
-	<table>
-		<thead>
-			<tr>
-				<th ng-click="sortData('name')">Name <div ng-class="getSortClass('name')"></div></th>
-				<th ng-click="sortData('dateOfBirth')">DOB <div ng-class="getSortClass('dateOfBirth')"></div></th>
-				<th ng-click="sortData('gender')">Gender <div ng-class="getSortClass('gender')"></div></th>
-				<th ng-click="sortData('salary')"> Salary(number filter) <div ng-class="getSortClass('salary')"></div></th>
-				<th ng-click="sortData('salary')">Salary(currency filter) <div ng-class="getSortClass('salary')"></div></th>
-				<th ng-click="sortData('city')">City <div ng-class="getSortClass('city')"></div></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="employee in employees | filter:search">
-				<td>{{ employee.name| uppercase }}</td>
-				<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy" }}</td>
-				<td>{{ employee.gender | gender }}</td>
-				<td>{{ employee.salary | number:2 }}</td>
-				<td>{{ employee.salary | currency:"$":1 }}</td>
-				<td>{{ employee.city }}</td>
-			</tr>
-		</tbody>
-	</table>
+
+	Select: <select ng-model="selectView">
+				<option value="EmployeeList.html">List</option>
+				<option value="EmployeeTable.html">Table</option>
+			</select>
+			<br/><br/>
+	<div ng-include="selectView"></div>
 </div>
 
 
