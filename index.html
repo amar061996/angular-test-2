@@ -5,6 +5,7 @@
 
 	<script src="Scripts/angular.min.js"></script>
 	<script src="Scripts/Scripts.js"></script>
+	<script src="Scripts/Filters.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/Styles.css">
 </head>
 <body ng-app="myModule">
@@ -26,7 +27,7 @@
 			<tr ng-repeat="employee in employees | filter:search">
 				<td>{{ employee.name| uppercase }}</td>
 				<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy" }}</td>
-				<td>{{ employee.gender| lowercase }}</td>
+				<td>{{ employee.gender | gender }}</td>
 				<td>{{ employee.salary | number:2 }}</td>
 				<td>{{ employee.salary | currency:"$":1 }}</td>
 				<td>{{ employee.city }}</td>
