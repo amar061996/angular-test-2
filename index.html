@@ -11,12 +11,24 @@
 <body ng-app="myModule">
 <div ng-controller="myController">
 
-	Select: <select ng-model="selectView">
-				<option value="EmployeeList.html">List</option>
-				<option value="EmployeeTable.html">Table</option>
-			</select>
-			<br/><br/>
-	<div ng-include="selectView"></div>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Gender</th>
+			<th>Salary</th>
+			<th>City</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="employee in employees">
+			<td>{{ employee.name }}</td>
+			<td>{{ employee.gender }}</td>
+			<td>{{ employee.salary }}</td>
+			<td>{{ employee.city }}</td>
+		</tr>
+	</tbody>
+</table>
 </div>
 
 

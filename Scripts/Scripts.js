@@ -1,6 +1,6 @@
 var myApp=angular
 	.module("myModule",[])
-	.controller("myController",function($scope){
+	.controller("myController",function($scope,$http,$log){
 
 	// $scope.message="My message";
 
@@ -13,8 +13,12 @@ var myApp=angular
 	{name :"Sagar Sharma",dateOfBirth: new Date("November 10 1996"), gender:1,salary:52000.155,city:"Agra"}
 
 	];
-
-	$scope.employees=employees;
+	$http.get("/json/data.json")
+	.then(function(response){
+		$scope.employees=response.data;
+		$log.info(response);
+	});
+	
 	$scope.selectView='EmployeeTable.html'
 
 
