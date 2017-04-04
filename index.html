@@ -9,10 +9,7 @@
 </head>
 <body ng-app="myModule">
 <div ng-controller="myController">
-	<input type="text" placeholder="Search name" ng-model="searchText.name" /> 
-	<input type="text" placeholder="Search city" ng-model="searchText.city" /> 
-	<input type="checkbox" ng-model="exactMatch"/> Exact Match <br/><br/>
-	Rows to display: <input type="number" step="1" min="0" max="5" ng-model="rowLimit">
+	<input type="text" placeholder="Search city & name" ng-model="searchText" /> 
 	<br/><br/>
 	<table>
 		<thead>
@@ -26,7 +23,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="employee in employees | limitTo:rowLimit | orderBy:sortColumn:reverseSort | filter:searchText:exactMatch">
+			<tr ng-repeat="employee in employees | filter:search">
 				<td>{{ employee.name| uppercase }}</td>
 				<td>{{ employee.dateOfBirth | date:"dd/MM/yyyy" }}</td>
 				<td>{{ employee.gender| lowercase }}</td>
